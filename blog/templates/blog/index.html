@@ -4,16 +4,23 @@
 
 {% block css_files %}
     <link rel="stylesheet" href= {% static 'blog/css/style.css' %} >
-{% endblock css_files %}
+{% endblock  %}
+
 
 {% block title %} Homepage {% endblock title %}
 
 {% block content %}
     
     
-    <h1>Homepage</h1>
+<h1>Homepage</h1>
 
-    <img src="{% static 'img/django.png' %}" alt="" width="100">
+<img src="{% static 'img/django.png' %}" alt="" width="100">
 
 {% endblock  %}    
+
+{% block js_files %}
+
+    <script src="{% static 'blog/js/script.js' %}"></script>
+
+{% endblock  %}
 
