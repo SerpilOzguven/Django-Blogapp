@@ -8,6 +8,5 @@ class Blog(models.Model):
     is_home = models.BooleanField(default=False)
     
     
-    
     class Category(models.Model):
         name = models.CharField(max_length=150)
