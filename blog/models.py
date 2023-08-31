@@ -18,9 +18,14 @@ class Blog(models.Model):
         self.slug = slugify(self.title)
         super().save(*args,**kwargs)
     
-    
+#abc.com/category/beyaz-esya    
 class Category(models.Model):
     name = models.CharField(max_length=150)
+    slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)
     
+    def save(self,*args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args,**kwargs)
+
     def __str__(self):
         return self.name
