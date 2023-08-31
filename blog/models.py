@@ -1,9 +1,13 @@
 from django.db import models
 from django.utils.text import slugify
 
+
+# blogs/1.jpg
+# movies/5.jpg
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
-    image = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="blogs")
     description = models.TextField()
     is_active = models.BooleanField(default=False)
     is_home = models.BooleanField(default=False)
