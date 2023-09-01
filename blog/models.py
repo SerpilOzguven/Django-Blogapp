@@ -25,7 +25,7 @@ class Blog(models.Model):
     is_active = models.BooleanField(default=False)
     is_home = models.BooleanField(default=False)
     slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)
-    category = models.ForeignKey(Category, default=1, on_delete=models.CASCADE)
+    categories = models.ManyToManyField(Category)
     
     
     
