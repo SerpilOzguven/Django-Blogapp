@@ -4,6 +4,8 @@ from blog.models import Blog, Category
 
 
 def index(request):
+    # if not request.user.is_authenticated: (auth olmayanlar anasayfayı göremesin istersek)
+    #     return redirect("home")
     context = {
         "blogs": Blog.objects.filter(is_active=True, is_home=True),
         "categories": Category.objects.all()

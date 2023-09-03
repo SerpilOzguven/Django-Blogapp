@@ -1,11 +1,14 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 
 
 # Create your views here.
 def login_request(request):
+    if request.user.is_authenticated:
+        return redirect("home")
+    
     if request.method == "POST":
         username = request.POST["username"]
         password  = request.POST["password"]
@@ -26,6 +29,9 @@ def login_request(request):
 
 
 def register_request(request):
+    if request.user.is_authenticated:
+        return redirect("home")
+    
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST["email"]
@@ -69,4 +75,5 @@ def register_request(request):
     return render(request, "account/register.html")
 
 def logout_request(request):
+    logout(request)
     return redirect("home")
